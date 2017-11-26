@@ -1,0 +1,13 @@
+{
+    "name": "meow",
+    "version": "0.0.1",
+    "description": "",
+    "main": "main.js",
+    "scripts": {},
+    "author": "Vika",
+    "license": "ISC",
+    "devDependencies": {
+        "webpack": "^1.14.0",
+        "webpack-dev-server": "^1.12.1"
+    }
+}
