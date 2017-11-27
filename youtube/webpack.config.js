@@ -4,5 +4,17 @@ module.exports = {
     output: {
         filename: 'bundle.js'
     },
-    watch: true
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel-loader',
+            exclude: /node_modules/,
+            query: {
+                presets: ['es2015']
+            }
+        }]
+    },
+    watch: true,
+    devtool: "source-map"
 };
+
