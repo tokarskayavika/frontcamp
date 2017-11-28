@@ -87,68 +87,67 @@
 	
 	        this.sources = Constants.sources;
 	        this.apiKey = Constants.apiKey;
+	        this.activeSourceId = this.sources[0].id;
 	    }
 	
 	    _createClass(Application, [{
 	        key: 'initialize',
 	        value: function initialize() {
 	            this.renderSourceList();
-	            this.initListeners();
-	        }
-	    }, {
-	        key: 'initListeners',
-	        value: function initListeners() {
-	            var _this = this;
-	
-	            var sourceList = document.getElementById('source-list');
-	            sourceList.addEventListener('click', function (e) {
-	                return _this.sendRequest(e);
-	            });
-	            document.querySelector('#source-list > li').click();
+	            document.getElementById(this.activeSourceId).click();
 	        }
 	    }, {
 	        key: 'renderSourceList',
 	        value: function renderSourceList() {
-	            var sourceList = document.getElementById('source-list');
-	            var sources = this.sources;
+	            var _this = this;
 	
-	            for (var i = 0; i < sources.length; i++) {
+	            var sourceList = document.getElementById('source-list');
+	
+	            this.sources.forEach(function (source) {
 	                var sourceElement = document.createElement('li');
-	                sourceElement.dataset.id = sources[i].id;
-	                sourceElement.innerHTML = sources[i].name;
+	                sourceElement.id = source.id;
+	                sourceElement.innerHTML = source.name;
+	                sourceElement.addEventListener('click', function () {
+	                    return _this.changeSource(source.id);
+	                });
 	
 	                sourceList.appendChild(sourceElement);
-	            }
+	            });
 	        }
 	    }, {
 	        key: 'renderNewsItems',
-	        value: function renderNewsItems(newsItems, activeSource) {
+	        value: function renderNewsItems(newsItems) {
 	            var newsSection = document.getElementById('feed');
-	            var sources = document.querySelectorAll('#source-list li');
 	            newsSection.innerHTML = "";
 	
-	            for (var i = 0; i < sources.length; i++) {
-	                sources[i].classList.remove('active');
-	            }
-	            activeSource.classList.add('active');
-	
-	            for (var _i = 0; _i < newsItems.length; _i++) {
-	                var newsItem = new _NewsItem2.default(newsItems[_i]);
+	            newsItems.forEach(function (item) {
+	                var newsItem = new _NewsItem2.default(item);
 	                newsSection.appendChild(newsItem.render());
-	            }
+	            });
+	        }
+	    }, {
+	        key: 'changeSource',
+	        value: function changeSource(activeSourceId) {
+	            var activeSource = document.getElementById(activeSourceId);
+	            var previousActiveSource = document.getElementById(this.activeSourceId);
+	
+	            this.sendRequest(activeSourceId);
+	
+	            previousActiveSource.classList.remove('active');
+	            activeSource.classList.add('active');
+	            this.activeSourceId = activeSourceId;
 	        }
 	    }, {
 	        key: 'sendRequest',
-	        value: function sendRequest(event) {
+	        value: function sendRequest(id) {
 	            var _this2 = this;
 	
-	            var activeSource = event.target;
-	            var promise = fetch('https://newsapi.org/v1/articles?source=' + activeSource.dataset.id + '&apiKey=' + this.apiKey);
+	            var promise = fetch('https://newsapi.org/v1/articles?source=' + id + '&apiKey=' + this.apiKey);
 	
 	            promise.then(function (response) {
 	                return response.json();
 	            }).then(function (data) {
-	                _this2.renderNewsItems(data.articles, activeSource);
+	                _this2.renderNewsItems(data.articles);
 	            }).catch(alert);
 	        }
 	    }]);
@@ -204,20 +203,17 @@
 	    function NewsItem(news) {
 	        _classCallCheck(this, NewsItem);
 	
-	        this.title = news.title;
-	        this.urlToImage = news.urlToImage;
-	        this.author = news.author;
-	        this.publishedAt = this.transformDate(news.publishedAt);
-	        this.description = news.description;
-	        this.url = news.url;
+	        news.publishedAt = this.transformDate(news.publishedAt);
+	        this.newsData = news;
 	    }
 	
 	    _createClass(NewsItem, [{
 	        key: 'render',
 	        value: function render() {
 	            var newsElement = document.createElement('li');
+	            var data = this.newsData;
 	
-	            newsElement.innerHTML = '\n            <h3 class="title">' + this.title + '</h3>\n            <p class="image"><img src="' + this.urlToImage + '" alt="' + this.title + '"/></p>\n            <div class="feed-info">\n                <p class="author">' + (this.author ? this.author : '') + '</p>\n                <p class="publishedAt">published at ' + this.publishedAt + '</p>\n                <p class="description">' + this.description + '</p>\n                <p class="url">\n                    <a href="' + this.url + '" target="_blank">Click to see full article</a>\n                </p>\n            </div>\n        ';
+	            newsElement.innerHTML = '\n            <h3 class="title">' + data.title + '</h3>\n            <p class="image"><img src="' + data.urlToImage + '" alt="' + data.title + '"/></p>\n            <div class="feed-info">\n                <p class="author">' + (data.author ? data.author : '') + '</p>\n                <p class="publishedAt">published at ' + data.publishedAt + '</p>\n                <p class="description">' + data.description + '</p>\n                <p class="url">\n                    <a href="' + data.url + '" target="_blank">Click to see full article</a>\n                </p>\n            </div>\n        ';
 	
 	            return newsElement;
 	        }

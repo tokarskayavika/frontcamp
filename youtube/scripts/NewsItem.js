@@ -2,26 +2,23 @@ import * as Constants from './constants';
 
 export default class NewsItem {
     constructor(news) {
-        this.title = news.title;
-        this.urlToImage = news.urlToImage;
-        this.author = news.author;
-        this.publishedAt = this.transformDate(news.publishedAt);
-        this.description = news.description;
-        this.url = news.url;
+        news.publishedAt = this.transformDate(news.publishedAt);
+        this.newsData = news;
     }
 
     render() {
         let newsElement = document.createElement('li');
+        let data = this.newsData;
 
         newsElement.innerHTML = `
-            <h3 class="title">${this.title}</h3>
-            <p class="image"><img src="${this.urlToImage}" alt="${this.title}"/></p>
+            <h3 class="title">${data.title}</h3>
+            <p class="image"><img src="${data.urlToImage}" alt="${data.title}"/></p>
             <div class="feed-info">
-                <p class="author">${this.author ? this.author : ''}</p>
-                <p class="publishedAt">published at ${this.publishedAt}</p>
-                <p class="description">${this.description}</p>
+                <p class="author">${data.author ? data.author : ''}</p>
+                <p class="publishedAt">published at ${data.publishedAt}</p>
+                <p class="description">${data.description}</p>
                 <p class="url">
-                    <a href="${this.url}" target="_blank">Click to see full article</a>
+                    <a href="${data.url}" target="_blank">Click to see full article</a>
                 </p>
             </div>
         `;
