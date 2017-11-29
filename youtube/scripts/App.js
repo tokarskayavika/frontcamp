@@ -10,7 +10,7 @@ export default class Application {
 
     initialize() {
         this.renderSourceList();
-        document.getElementById(this.activeSourceId).click();
+        this.changeSource(this.activeSourceId);
     }
 
     renderSourceList() {

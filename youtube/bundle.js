@@ -94,7 +94,7 @@
 	        key: 'initialize',
 	        value: function initialize() {
 	            this.renderSourceList();
-	            document.getElementById(this.activeSourceId).click();
+	            this.changeSource(this.activeSourceId);
 	        }
 	    }, {
 	        key: 'renderSourceList',
