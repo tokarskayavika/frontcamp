@@ -1,9 +1,9 @@
 header {
     height: 90px;
     display: flex;
-	display: -ms-flexbox;
+    display: -ms-flexbox;
     -ms-flex-direction: row;
-	-ms-flex-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     -webkit-box-shadow: 0 6px 17px -5px rgba(145,135,145,1);
     -moz-box-shadow: 0 6px 17px -5px rgba(145,135,145,1);
@@ -29,7 +29,7 @@ header h1 i {
 
 #source-list {
     display: flex;
-	display: -ms-flexbox;
+    display: -ms-flexbox;
     -ms-flex-direction: row;
     line-height: 110px;
 }
@@ -153,9 +153,9 @@ header h1 i {
         background: white;
         padding-bottom: 20px;
         display: flex;
-		display: -ms-flexbox;
-		-ms-flex-direction: row;
-		-ms-flex-pack: center;
+	display: -ms-flexbox;
+	-ms-flex-direction: row;
+	-ms-flex-pack: center;
         line-height: 50px;
         justify-content: center;
     }
