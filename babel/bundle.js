@@ -690,6 +690,7 @@
 	            var newsElement = document.createElement('li');
 	            var data = this.newsData;
 	
+	
 	            newsElement.innerHTML = '\n            <h3 class="title">' + data.title + '</h3>\n            <p class="image"><img src="' + data.urlToImage + '" alt="' + data.title + '"/></p>\n            <div class="feed-info">\n                <p class="author">' + (data.author ? data.author : '') + '</p>\n                <p class="publishedAt">published at ' + data.publishedAt + '</p>\n                <p class="description">' + data.description + '</p>\n                <p class="url">\n                    <a href="' + data.url + '" target="_blank">Click to see full article</a>\n                </p>\n            </div>\n        ';
 	
 	            return newsElement;

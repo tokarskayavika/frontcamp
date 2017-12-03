@@ -9,6 +9,7 @@ export default class NewsItem {
     render() {
         let newsElement = document.createElement('li');
         let data = this.newsData;
+        console.log('create news item');
 
         newsElement.innerHTML = `
             <h3 class="title">${data.title}</h3>
