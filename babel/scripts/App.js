@@ -47,10 +47,15 @@ export default class Application {
         this.activeSourceId = activeSourceId;
     }
 
-    sendRequest(id) {
-        let promise = fetch(`https://newsapi.org/v1/articles?source=${id}&apiKey=${this.apiKey}`);
-        
-        promise.then((response) => response.json()).then((data) => {
-            this.renderNewsItems(data.articles)}).catch(alert);
+    async sendRequest(id) {
+        try {
+            let promise = await fetch(`https://newsapi.org/v1/articles?source=${id}&apiKey=${this.apiKey}`);
+            let data = await promise.json();
+
+            return this.renderNewsItems(data.articles);
+        }
+        catch (error) {
+            throw new Error(error);
+        }
     }
 }
