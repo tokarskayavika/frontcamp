@@ -2,7 +2,7 @@ module.exports = {
     entry: ['whatwg-fetch', './scripts/main.js'],
 
     output: {
-        filename: 'bundle.js'
+        filename: './build/bundle.js'
     },
     module: {
         loaders: [{
@@ -14,7 +14,6 @@ module.exports = {
             }
         }]
     },
-    watch: true,
-    devtool: "source-map"
+    watch: true
 };
 
