@@ -1,5 +1,10 @@
 {
-    "presets": ["env", "stage-0"],
-    "plugins": ["./plugin/babel-plugin.js"]
-
+  "presets": [
+    "env",
+    "stage-0"
+  ],
+  "plugins": [
+    "./plugin/babel-plugin.js",
+    "syntax-dynamic-import"
+  ]
 }
