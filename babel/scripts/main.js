@@ -7,7 +7,9 @@ function loadApplication() {
             let Application = module.default;
             let myApplication = new Application();
             myApplication.initialize();
-    })
+    });
+	
+	import('../style/stylesheet.scss');
 }
 
 const initButton = document.getElementById("meow");

@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        main: ['babel-polyfill', 'whatwg-fetch', './scripts/main.js', './style/main.scss'],
+        main: ['babel-polyfill', 'whatwg-fetch', './scripts/main.js', './style/default.scss'],
         json: './myjson.json'
     },
 
