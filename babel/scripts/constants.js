@@ -16,3 +16,5 @@ export const sources = [
 ];
 
 export const apiKey = 'eb81ab5ae83542edbef091949ecf6c34';
+
+export const defaultType = 'INITIAL';
