@@ -1,10 +1,9 @@
 import * as Constants from './constants';
-import NewsItem from './NewsItem';
-import DecoratedNewsItem from './DecoratedNewsItem';
-import Proxy from './Proxy';
-import Iterator from './Iterator';
+import Proxy from './helpers/Proxy';
+import Iterator from './helpers/Iterator';
 import Store from './Store';
 import reducer from './Reducer';
+import NewsCreator from './NewsCreator';
 
 export default class Application {
     constructor() {
@@ -40,13 +39,7 @@ export default class Application {
         newsSection.innerHTML = "";
 
         newsIterator.each((item) => {
-            let newsItem;
-
-            if (state.newsType === Constants.defaultType) {
-                newsItem = new NewsItem(item);
-            } else {
-                newsItem = new DecoratedNewsItem(item);
-            }
+            let newsItem = new NewsCreator(item, state);
             newsSection.appendChild(newsItem.render());
         });
     }

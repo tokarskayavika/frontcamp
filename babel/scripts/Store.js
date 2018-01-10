@@ -1,4 +1,4 @@
-import Iterator from './Iterator';
+import Iterator from './helpers/Iterator';
 
 export default class Store {
     constructor(reducer) {

@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import Singleton from './helpers/Singleton';
 
 function loadApplication() {
     import('./App').then(module => {
@@ -19,21 +20,4 @@ function createApplication() {
     });
 }
 
-var Singleton = (function () {
-    let instance;
-
-    function createInstance() {
-        return createApplication();
-    }
-
-    return {
-        getInstance: function () {
-            if (!instance) {
-                instance = createInstance();
-            }
-            return instance;
-        }
-    };
-})();
-
-Singleton.getInstance();
+Singleton.getInstance(createApplication);

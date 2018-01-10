@@ -1,17 +1,12 @@
-import NewsItem from './NewsItem';
-
-export default class DecoratedNewsItem extends NewsItem {
-    constructor(news) {
-        super(news);
+export default class DecoratedNewsItem {
+    constructor(newsElement) {
+        this.innerElement = newsElement;
     }
 
     render() {
         let wrapper = document.createElement('div');
-        wrapper.innerHTML = `
-            <div class="decorated-news-wrapper">
-                ${super.render().innerHTML}
-            </div>
-        `;
+        wrapper.classList.add('decorated-news-wrapper');
+        wrapper.appendChild(this.innerElement);
 
         return wrapper;
     }
