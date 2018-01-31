@@ -1,6 +1,6 @@
-let express = require('express');
-let router = require('./api/routes.js');
-let app = express();
+const express = require('express');
+const router = require('./api/routes.js');
+const app = express();
 
 const port = 9000;
 

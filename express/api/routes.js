@@ -1,9 +1,9 @@
 function ApplicationRouter(app) {
-    let express = require('express');
-    let fs = require('fs');
+    const express = require('express');
+    const fs = require('fs');
     const constants = require('../constants.js');
-    let winston = require('winston');
-    let router = express.Router();
+    const winston = require('winston');
+    const router = express.Router();
 
     const logger = winston.createLogger({
         level: 'info',
@@ -14,7 +14,7 @@ function ApplicationRouter(app) {
     });
 
     app.all('*', function(request, response, next) {
-        let date = new Date();
+        const date = new Date();
 
         next();
         logger.log({
@@ -46,11 +46,11 @@ function ApplicationRouter(app) {
     });
 
     router.get('/blogs/:id', function(request, response, next) {
-        let id = request.params.id;
+        const id = request.params.id;
 
         fs.readFile('message.txt', function(err, data) {
             if (err) throw err;
-            let fileData = JSON.parse(data);
+            const fileData = JSON.parse(data);
 
             if (fileData[id]) {
                 response.writeHead(200, {'Content-Type': 'application/json'});
@@ -64,7 +64,7 @@ function ApplicationRouter(app) {
     });
 
     router.put('/blogs/:id', function(request, response, next) {
-        let id = request.params.id;
+        const id = request.params.id;
 
         fs.readFile('message.txt', function(err, data) {
             if (err) throw err;
@@ -83,7 +83,7 @@ function ApplicationRouter(app) {
     });
 
     router.delete('/blogs/:id', function(request, response, next) {
-        let id = request.params.id;
+        const id = request.params.id;
 
         fs.readFile('message.txt', function(err, data) {
             if (err) throw err;
