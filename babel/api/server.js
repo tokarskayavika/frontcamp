@@ -21,10 +21,9 @@ db.once('open', function() {
 authorization(app);
 router(app);
 
-app.use(function(error, requset, response, next) {
-    response.status(404).end({
-        error: error
-    });
+app.use(function(request, response) {
+    response.status(404);
+    response.render('index', {title: 'Hey', message: 'Shit happens!'});
 });
 
 app.listen(port);

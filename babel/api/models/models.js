@@ -7,8 +7,7 @@ const PostSchema = new Schema({
     publishedAt: String,
     title: String,
     url: String,
-    urlToImage: String,
-    postId: Number
+    urlToImage: String
 });
 
 const UserSchema = new Schema({
