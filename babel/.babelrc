@@ -4,7 +4,6 @@
     "stage-0"
   ],
   "plugins": [
-    /*"./plugin/babel-plugin.js",*/
     "syntax-dynamic-import"
   ]
 }
