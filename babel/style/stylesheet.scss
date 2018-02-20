@@ -17,9 +17,58 @@
   }
 }
 
+form {
+  max-width: 950px;
+  margin: 0 auto;
+  margin-bottom: 80px;
+
+  input[name="author"], input[name="title"] {
+    padding: 0 20px;
+    display: inline-block;
+    width: 35%;
+    height: 25px;
+    border-radius: 10px;
+    border: 1px solid #a09e9e;
+    margin-right: 10px;
+    outline: none;
+  }
+
+  textarea[name="description"] {
+    padding: 10px 20px;
+    display: block;
+    min-height: 80px;
+    width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #a09e9e;
+    outline: none;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+
+  button {
+    padding: 3px 30px;
+    border: 1px solid #a09e9e;
+    background-color: #ece8f7;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    margin-top: 10px;
+    float: right;
+
+    &:hover {
+      cursor: pointer;
+      background: #efefef;
+    }
+  }
+}
+
 #main-section {
   margin: 50px;
   margin-top: 140px;
+  position: relative;
 }
 
 #feed {
@@ -30,6 +79,24 @@
   li {
     font-size: 0;
     margin-bottom: 40px;
+  }
+
+  .delete-button {
+    padding: 3px 30px;
+    border: 1px solid #a09e9e;
+    background-color: #ece8f7;
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    margin-top: 10px;
+    float: right;
+
+    &:hover {
+      cursor: pointer;
+      background: #efefef;
+    }
   }
 
   .title {
@@ -88,11 +155,33 @@
 
 .feed-info {
   display: inline-block;
-  width: 40%;
+  width: 80%;
   font-size: 20px;
   padding: 0 20px;
   box-sizing: border-box;
   vertical-align: top;
+}
+
+.filter {
+  display: inline;
+  max-width: 950px;
+  margin: 0 auto;
+  font-family: 'Poppins', sans-serif;
+  font-size: 17px;
+  padding: 10px;
+  background: #f2f0ff;
+
+  position: absolute;
+  top: 125px;
+  left: 52px;
+
+  input {
+    padding: 0 10px;
+  }
+
+  label {
+    margin-left: 20px;
+  }
 }
 
 @media only screen and (max-width: 850px) {
