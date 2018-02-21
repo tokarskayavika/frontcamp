@@ -3,8 +3,7 @@ import Filter from './Filter';
 import PostContainer from './PostContainer';
 import React, {Component} from 'react';
 
-
-export default class Application extends Component {
+class Application extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -56,3 +55,5 @@ export default class Application extends Component {
         );
     }
 }
+
+module.exports = Application;

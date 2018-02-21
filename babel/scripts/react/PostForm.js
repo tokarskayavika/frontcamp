@@ -13,24 +13,32 @@ export default class PostForm extends React.Component {
         this.addNewPost = this.addNewPost.bind(this);
     }
 
-    onFormChange(e) {
-        let newState = Object.assign(this.state);
-        newState[e.target.name] = e.target.value;
+    clearState() {
+        this.setState({
+            author: '',
+            title: '',
+            description: ''
+        });
+    }
+
+    onFormChange(field, value) {
+        const newState = Object.assign(this.state);
+        newState[field] = value;
 
         this.setState(newState);
     }
 
     addNewPost(e) {
         this.props.addNewPost(e, this.state);
-        this.setState({});
+        this.clearState();
     }
 
     render() {
         return(
             <form>
-                <input type="text" name="author" placeholder="Add post author" onChange={this.onFormChange} />
-                <input type="text" name="title" placeholder="Add post title" onChange={this.onFormChange} />
-                <textarea name="description" placeholder="And post description here..." onChange={this.onFormChange} />
+                <input value={this.state.author} type="text" placeholder="Add post author" onChange={(e) => this.onFormChange('author', e.target.value)} />
+                <input value={this.state.title} type="text" placeholder="Add post title" onChange={(e) => this.onFormChange('title', e.target.value)} />
+                <textarea value={this.state.description} placeholder="And post description here..." onChange={(e) => this.onFormChange('description', e.target.value)} />
                 <button onClick={this.addNewPost}>Add new post</button>
             </form>
         );

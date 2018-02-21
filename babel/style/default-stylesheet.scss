@@ -1,4 +1,11 @@
-header {
+#content {
+  max-width: 950px;
+  margin: 0 auto;
+  margin-top: 130px;
+  position: relative;
+}
+
+.header {
   height: 90px;
   display: flex;
   display: -ms-flexbox;

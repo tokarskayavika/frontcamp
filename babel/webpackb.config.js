@@ -1,17 +1,12 @@
 var path = require('path');
+var webpack = require('webpack');
+var nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-    entry: {
-        main: ['babel-polyfill', 'whatwg-fetch', './scripts/main.js', './style/default.scss'],
-        json: './myjson.json'
-    },
+    entry: './api/server.js',
 
     output: {
-        filename: "./build/[name].bundle.js"
-    },
-
-    resolveLoader: {
-        modules: ['node_modules', path.resolve(__dirname, 'loaders')]
+        filename: "./build/server.bundle.js"
     },
 
     module: {
@@ -30,17 +25,14 @@ module.exports = {
         }, {
             test: /\.scss$/,
             loaders: ['style-loader', 'css-loader', 'sass-loader']
-        }, {
-            test: /\.json$/,
-            use: [{
-                loader: 'raw-loader'
-            }, {
-                loader: 'json-loader'
-            }, {
-                loader: 'my-loader',
-            }]
         }]
     },
-    plugins: []
+    plugins: [
+        new webpack.optimize.LimitChunkCountPlugin({
+            maxChunks: 1
+        })
+    ],
+    target: 'node',
+    externals: [nodeExternals()]
 };
 

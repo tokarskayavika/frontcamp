@@ -1,24 +1,11 @@
-import 'whatwg-fetch';
 import Singleton from './helpers/Singleton';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import App from './react/App';
+import('../style/default.scss');
 
 function loadApplication() {
-    import('./react/App').then(module => {
-        let App = module.default;
-        ReactDOM.render(<App />, document.getElementById('main-section'));
-    });
-
-	import('../style/stylesheet.scss');
+    ReactDOM.hydrate(<App />, document.getElementById('content'));
 }
 
-function createApplication() {
-    const initButton = document.getElementById("meow");
-
-    initButton.addEventListener("click", () => {
-        loadApplication();
-        initButton.remove();
-    });
-}
-
-Singleton.getInstance(createApplication);
+Singleton.getInstance(loadApplication);

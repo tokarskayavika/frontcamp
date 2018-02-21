@@ -21,9 +21,7 @@ export default class PostContainer extends React.Component {
             <NewsItem
                 key={id}
                 id={id}
-                author={post.author}
-                title={post.title}
-                description={post.description}
+                data={post}
                 deletePost={this.props.deletePost}
             />
         );

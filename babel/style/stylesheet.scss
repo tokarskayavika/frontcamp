@@ -22,7 +22,7 @@ form {
   margin: 0 auto;
   margin-bottom: 80px;
 
-  input[name="author"], input[name="title"] {
+  input {
     padding: 0 20px;
     display: inline-block;
     width: 35%;
@@ -33,7 +33,7 @@ form {
     outline: none;
   }
 
-  textarea[name="description"] {
+  textarea {
     padding: 10px 20px;
     display: block;
     min-height: 80px;
@@ -173,7 +173,6 @@ form {
 
   position: absolute;
   top: 125px;
-  left: 52px;
 
   input {
     padding: 0 10px;
