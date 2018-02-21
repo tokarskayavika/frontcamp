@@ -2,12 +2,10 @@
   "name": "meow",
   "version": "0.0.1",
   "description": "",
-  "main": "main.js",
+  "main": "scripts/main.js",
   "scripts": {
-    "start": "nodemon api/server.js --exec babel-node --presets env,stage-0,react",
-    "build:dev": "webpack --config webpack.dev.js",
-    "build:prod": "webpack -p --config webpack.prod.js",
-    "build": "webpack-dev-server --open --config webpack.dev.js"
+    "build:front": "webpack --config webpackf.config.js",
+    "build:back": "webpack --config webpackb.config.js"
   },
   "author": "Vika",
   "license": "ISC",

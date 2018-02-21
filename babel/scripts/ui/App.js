@@ -15,8 +15,7 @@ class Application extends Component {
         this.changeFilterValue = this.changeFilterValue.bind(this);
     }
 
-    addNewPost(e, newPost) {
-        e.preventDefault();
+    addNewPost(newPost) {
         let posts = this.state.posts;
 
         if (newPost.author && newPost.description && newPost.title) {

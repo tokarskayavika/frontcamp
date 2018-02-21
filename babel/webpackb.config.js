@@ -1,4 +1,3 @@
-var path = require('path');
 var webpack = require('webpack');
 var nodeExternals = require('webpack-node-externals');
 
@@ -6,7 +5,7 @@ module.exports = {
     entry: './api/server.js',
 
     output: {
-        filename: "./build/server.bundle.js"
+        filename: './build/server.bundle.js'
     },
 
     module: {

@@ -1,11 +1,10 @@
-var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
     entry: './scripts/main.js',
 
     output: {
-        filename: "./build/final.bundle.js"
+        filename: './build/final.bundle.js'
     },
 
     module: {

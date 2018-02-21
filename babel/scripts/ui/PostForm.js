@@ -29,7 +29,8 @@ export default class PostForm extends React.Component {
     }
 
     addNewPost(e) {
-        this.props.addNewPost(e, this.state);
+        e.preventDefault();
+        this.props.addNewPost(this.state);
         this.clearState();
     }
 
