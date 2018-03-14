@@ -5,22 +5,22 @@ import PropTypes from 'prop-types';
 export default class PostForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            author: props.author,
-            title: props.title,
-            description: props.description
-        };
+        this.state = this.getDefaultStateObject();
         this.onFormChange = this.onFormChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.addPost = props.addPost.bind(this);
     }
 
-    clearState() {
-        this.setState({
+    getDefaultStateObject() {
+        return {
             author: '',
             title: '',
             description: ''
-        });
+        };
+    }
+
+    clearState() {
+        this.setState(this.getDefaultStateObject());
     }
 
     onSubmit(e) {
