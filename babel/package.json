@@ -7,7 +7,7 @@
     "build:front": "webpack --config webpack-front.config.js",
     "build:back": "webpack --config webpack-back.config.js",
     "test": "jest",
-	"start": "nodemon build/server.bundle.js"
+    "start": "nodemon build/server.bundle.js"
   },
   "author": "Vika",
   "license": "ISC",
@@ -17,7 +17,7 @@
     "pug": "^2.0.0-rc.4",
     "webpack-node-version": "1.0.0",
     "winston": "^3.0.0-rc1",
-	"nodemon": "^1.14.11"
+    "nodemon": "^1.14.11"
   },
   "devDependencies": {
     "axios": "^0.18.0",
@@ -29,6 +29,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.6.0",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.5.0",
     "body-parser": "^1.18.2",
     "css-loader": "^0.15.1",
