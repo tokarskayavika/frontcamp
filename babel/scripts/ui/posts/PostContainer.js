@@ -1,6 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import NewsItem from './NewsItem';
+import PropTypes from 'prop-types';
 
 export default class PostContainer extends React.Component {
     constructor(props) {
@@ -20,7 +21,7 @@ export default class PostContainer extends React.Component {
         const postsElements = this.sortPosts().map((post, id) =>
             <NewsItem
                 key={id}
-                id={id}
+                id={post._id}
                 data={post}
                 deletePost={this.props.deletePost}
             />
@@ -33,3 +34,8 @@ export default class PostContainer extends React.Component {
         );
     }
 }
+
+PostContainer.propTypes = {
+    posts: PropTypes.array,
+    deletePost: PropTypes.func
+};

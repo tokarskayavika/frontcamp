@@ -1,11 +1,24 @@
 import Singleton from './helpers/Singleton';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './ui/App';
-import('../style/main.scss');
+import {BrowserRouter as Router} from "react-router-dom";
+import UIRouter from './router/UIRouter';
+import {Provider} from 'react-redux';
+import store from "./ui/store";
+
+const browserHistory = Router.browserHistory;
+
+import '../style/main.scss';
 
 function loadApplication() {
-    ReactDOM.hydrate(<App />, document.getElementById('content'));
+    ReactDOM.hydrate(
+        <Provider store={store}>
+            <Router history={browserHistory}>
+                <UIRouter />
+            </Router>
+        </Provider>,
+        document.getElementById('content')
+    );
 }
 
 Singleton.getInstance(loadApplication);

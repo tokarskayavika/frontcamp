@@ -11,7 +11,7 @@ function UserRouter() {
             }
 
             if (user) {
-                response.redirect('/blogs');
+                response.send(user);
             } else {
                 response.send({
                     error: 'Unknown user!'

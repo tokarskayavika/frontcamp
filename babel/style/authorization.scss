@@ -1,0 +1,109 @@
+.registration-page {
+  height: 100%;
+  background: url('./images/register.jpg');
+  background-size: cover;
+}
+
+#user-form {
+  width: 350px;
+  margin: 0 auto;
+
+  input {
+    display: block;
+    width: 100%;
+    height: 30px;
+    padding: 0 20px;
+    border: 1px solid #c1c1c1;
+    margin-bottom: 5px;
+    font-family: 'Work Sans', sans-serif;
+    -webkit-box-shadow: inset 0 0 0 50px #fff;
+    -webkit-text-fill-color: #000;
+  }
+}
+
+.authorization-section {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  width: 50%;
+}
+
+.registration-section {
+  position: fixed;
+  bottom: 30%;
+  right: 13%;
+  width: auto;
+}
+
+.button {
+  display: block;
+  margin: 0 auto;
+  width: 350px;
+  height: 30px;
+  border: 1px solid #c1c1c1;
+  font-family: 'Work Sans', sans-serif;
+  text-transform: uppercase;
+  background: #f8f7f7;
+  cursor: pointer;
+  outline: none;
+
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 28px;
+  color: inherit;
+
+  &:hover {
+    background: #efeeee;
+  }
+}
+
+.form-wrapper {
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+
+  }
+
+  h5, h6 {
+    width: 350px;
+    margin: 0 auto;
+    margin-bottom: 5px;
+    font-family: 'Work Sans', sans-serif;
+    text-align: right;
+    text-transform: uppercase;
+  }
+
+  h6 {
+    display: table;
+    border-spacing: 10px 0;
+    font-size: 14px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    &::before, &::after {
+      content: '';
+      position: relative;
+      display: table-cell;
+      width: 50%;
+      height: 100%;
+      -webkit-transform: translateY(50%);
+      -ms-transform: translateY(50%);
+      transform: translateY(50%);
+      border-top: 1px solid #8f8f8f;
+    }
+  }
+
+  .error {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.5);
+    line-height: 25px;
+    bottom: -30px;
+    width: 100%;
+    text-align: center;
+    color: #ea3a13;
+    text-transform: lowercase;
+    font-weight: 600;
+  }
+}

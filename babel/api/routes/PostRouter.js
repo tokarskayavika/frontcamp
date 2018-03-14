@@ -2,13 +2,15 @@ function PostRouter() {
     const express = require('express');
     const router = express.Router();
     const models = require('../models/models.js');
-    const ReactDOMServer = require('react-dom/server');
-    const React = require('react');
-    const App  = require('../../scripts/ui/App');
 
     router.get('/', function(request, response) {
-        const content = ReactDOMServer.renderToString(<App />);
-        response.render('meow', {entry: content});
+        models.post.find({}, function(error, result) {
+            if (error) {
+                response.send(error);
+            } else {
+                response.send(result);
+            }
+        });
     });
 
     router.post('/', function(request, response) {
