@@ -21,4 +21,4 @@ const UserModel = mongoose.model('UserModel', UserSchema);
 module.exports = {
     post: PostModel,
     user: UserModel
-}
+};

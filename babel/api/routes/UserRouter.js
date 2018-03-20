@@ -36,11 +36,7 @@ function UserRouter() {
                 });
 
                 userModel.save(function(error, result) {
-                    if (error) {
-                        response.send(error);
-                    } else {
-                        response.send(result);
-                    }
+                    response.send(error || result);
                 });
             }
         });

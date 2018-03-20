@@ -5,11 +5,7 @@ function PostRouter() {
 
     router.get('/', function(request, response) {
         models.post.find({}, function(error, result) {
-            if (error) {
-                response.send(error);
-            } else {
-                response.send(result);
-            }
+            response.send(error || result);
         });
     });
 
@@ -25,11 +21,7 @@ function PostRouter() {
         });
 
         postModel.save(function(error, result) {
-            if (error) {
-                response.send(error);
-            } else {
-                response.send(result);
-            }
+            response.send(error || result);
         });
     });
 
@@ -37,11 +29,7 @@ function PostRouter() {
         const id = request.params.id;
 
         models.post.findOne({_id: id}, function(error, result) {
-            if (error) {
-                response.send(error);
-            } else {
-                response.send(result);
-            }
+            response.send(error || result);
         });
     });
 
@@ -49,11 +37,7 @@ function PostRouter() {
         const id = request.params.id;
 
         models.post.update({_id: id}, request.body, function(error, result) {
-            if (error) {
-                response.send(error);
-            } else {
-                response.send(result);
-            }
+            response.send(error || result);
         });
     });
 
@@ -61,11 +45,7 @@ function PostRouter() {
         const id = request.params.id;
 
         models.post.remove({_id: id}, function(error, result) {
-            if (error) {
-                response.send(error);
-            } else {
-                response.send(result);
-            }
+            response.send(error || result);
         });
     });
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import config from '../config';
 
 function mapStateToProps(state) {
     return state;
@@ -6,7 +7,7 @@ function mapStateToProps(state) {
 
 function mapActionsToProps(dispatch) {
     let onUserSuccess = function() {
-        axios.get('http://localhost:9000/api/blogs'
+        axios.get(config.api.posts.url
         )
             .then(function(response) {
                 dispatch({
@@ -25,7 +26,7 @@ function mapActionsToProps(dispatch) {
         userLogin: function(e, data) {
             e.preventDefault();
 
-            axios.post('http://localhost:9000/api/login', {
+            axios.post(config.api.user.login, {
                 username: data.username,
                 password: data.password
             })
@@ -47,7 +48,7 @@ function mapActionsToProps(dispatch) {
         userRegistration: function(e, data) {
             e.preventDefault();
 
-            axios.post('http://localhost:9000/api/register', {
+            axios.post(config.api.user.register, {
                 username: data.username,
                 password: data.password
             })
@@ -69,7 +70,7 @@ function mapActionsToProps(dispatch) {
 
         addPost: function(data) {
 
-            axios.post('http://localhost:9000/api/blogs', {
+            axios.post(config.api.posts.url, {
                 author: data.author,
                 description: data.description,
                 title: data.title
@@ -86,7 +87,7 @@ function mapActionsToProps(dispatch) {
         },
 
         deletePost: function(id) {
-            axios.delete('http://localhost:9000/api/blogs/' + id
+            axios.delete(config.api.posts.add(id)
             )
                 .then(function() {
                     dispatch({

@@ -8,7 +8,7 @@ export default function postsReducer(state = {}, action) {
         }
 
         case 'ADD_POST': {
-            let posts = state.posts;
+            const posts = state.posts;
 
             posts.push(action.payload);
 
@@ -18,8 +18,8 @@ export default function postsReducer(state = {}, action) {
         }
 
         case 'DELETE_POST': {
-            let posts = state.posts;
-            let postId = action.payload;
+            const posts = state.posts;
+            const postId = action.payload;
 
             return Object.assign({}, state, {
                 posts: posts.filter(post => post._id !== postId)
