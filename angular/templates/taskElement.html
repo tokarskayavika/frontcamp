@@ -1,0 +1,7 @@
+<li>
+    <span ng-hide="$ctrl.task.edit">{{$ctrl.task.name}}</span>
+    <task-form ng-show="$ctrl.task.edit" task="$ctrl.task" save-task="$ctrl.saveTask(task)"></task-form>
+    <input type="button" value="Remove" ng-click="$ctrl.removeTask(index)" />
+    <input type="checkbox" ng-model="$ctrl.task.done" ng-click="$ctrl.moveTask()" />
+    <div ng-click="$ctrl.goToEditPage(index)">Edit</div>
+</li>

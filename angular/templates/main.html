@@ -1,0 +1,15 @@
+<div ng-controller="toDoController">
+    <div ng-click="goToAddPage()" add-task="addTask(task)">ADD NEW TASK</div>
+
+    <label for="by-letter">Filter be first letter</label>
+    <input id="by-letter" type="checkbox" ng-model="filterByFirstLetter" ng-change="getFilterValue()"/>
+
+    <h1>New TODOs</h1>
+    <ul ng-repeat="task in plannedTasks">
+        <task-element task="task" go-to-edit-page="goToEditPage(task.index)" save-task="saveTask(task)" remove-task="removeTask(task.index)" move-task="moveTask()"></task-element>
+    </ul>
+    <h1>Done TODOs</h1>
+    <ul ng-repeat="task in doneTasks">
+        <task-element task="task" go-to-edit-page="goToEditPage(task.index)" save-task="saveTask(task)" remove-task="removeTask(task.index)" move-task="moveTask()"></task-element>
+    </ul>
+</div>
