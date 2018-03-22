@@ -1,27 +1,21 @@
-define(function(require, exports, module) {
-    function Components(app) {
-        app.component('taskForm', {
-            templateUrl: 'templates/taskForm.html',
-            bindings: {
-                task: '=',
-                newTask: '=',
-                saveTask: '&',
-                addTask: '&',
-                editMode: '='
-            }
-        });
+angular.module('toDo.components', []).component('taskForm', {
+   templateUrl: 'taskForm.html',
+       bindings: {
+           task: '=',
+           newTask: '=',
+           saveTask: '&',
+           addTask: '&',
+           editMode: '='
+       }
+   })
 
-        app.component('taskElement', {
-            templateUrl: 'templates/taskElement.html',
-            bindings: {
-                task: '=',
-                saveTask: '&',
-                goToEditPage: '&',
-                removeTask: '&',
-                moveTask: '&'
-            }
-        });
-    }
-
-    module.exports = Components;
-});
+   .component('taskElement', {
+       templateUrl: 'taskElement.html',
+       bindings: {
+           task: '=',
+           saveTask: '&',
+           goToEditPage: '&',
+           removeTask: '&',
+           moveTask: '&'
+       }
+   });

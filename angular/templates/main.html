@@ -1,15 +1,26 @@
 <div ng-controller="toDoController">
-    <div ng-click="goToAddPage()" add-task="addTask(task)">ADD NEW TASK</div>
+    <div ng-click="goToAddPage()" add-task="addTask(task)" class="add-button">ADD NEW TASK</div>
 
-    <label for="by-letter">Filter be first letter</label>
-    <input id="by-letter" type="checkbox" ng-model="filterByFirstLetter" ng-change="getFilterValue()"/>
+    <form class="sorting-form">
+        <label for="by-letter">Sort by first letter</label>
+        <input id="by-letter" type="radio" ng-model="sortValue" ng-click="sortByFlag()" name="sort-value" value="firstLetter"/>
+        <label for="by-date">Sort by date</label>
+        <input id="by-date" type="radio" ng-model="sortValue"  ng-click="sortByFlag()" name="sort-value" value="date"/>
+        <label for="initial">Initial</label>
+        <input id="initial" type="radio" ng-model="sortValue" ng-click="sortByFlag()" name="sort-value" value="initial"/>
+    </form>
+
+    <form class="filter-form">
+        <label for="filter">Filter by days old</label>
+        <input id="filter" type="number" ng-model="filterValue" ng-change="filterByDaysOld()" />
+    </form>
 
     <h1>New TODOs</h1>
-    <ul ng-repeat="task in plannedTasks">
+    <ul ng-repeat="task in plannedTasks" class="todo-list">
         <task-element task="task" go-to-edit-page="goToEditPage(task.index)" save-task="saveTask(task)" remove-task="removeTask(task.index)" move-task="moveTask()"></task-element>
     </ul>
     <h1>Done TODOs</h1>
-    <ul ng-repeat="task in doneTasks">
+    <ul ng-repeat="task in doneTasks" class="todo-list">
         <task-element task="task" go-to-edit-page="goToEditPage(task.index)" save-task="saveTask(task)" remove-task="removeTask(task.index)" move-task="moveTask()"></task-element>
     </ul>
 </div>

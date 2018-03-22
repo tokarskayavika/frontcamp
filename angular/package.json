@@ -6,11 +6,13 @@
   "author": "Vika",
   "license": "ISC",
   "scripts": {
-    "server": "http-server -c-1"
+    "start": "nodemon server.js"
   },
   "dependencies": {},
   "devDependencies": {
-    "http-server": "^0.11.1",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "nodemon": "^1.17.2",
     "requirejs": "^2.3.5"
   }
 }
