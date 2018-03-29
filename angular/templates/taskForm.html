@@ -1,9 +1,18 @@
 <form name="todoForm" class="task-form">
     <label for="todoName">Text</label>
-    <input id="todoName" type="text" placeholder="Todo name" ng-model="$ctrl.task.name" value="$ctrl.task.name" name="todoName" control-name-length required />
+    <input id="todoName" type="text" placeholder="Todo name" ng-model="$ctrl.task.name" value="$ctrl.task.name"
+           name="todoName" control-name-length required/>
     <span ng-show="todoForm.todoName.$dirty && todoForm.todoName.$invalid">
         Name should be more than 19 symbols
     </span>
-    <input type="button" value="Save todo" ng-click="$ctrl.saveTask($ctrl.task)" ng-show="todoForm.todoName.$valid && $ctrl.editMode" class="save-button" />
-    <input type="button" value="Add todo" ng-click="$ctrl.addTask()" ng-show="todoForm.todoName.$valid && !$ctrl.editMode" class="save-button" />
+    <input type="button" value="Save todo" ng-click="$ctrl.saveTask($ctrl.task)"
+           ng-show="todoForm.todoName.$valid && $ctrl.editMode" class="save-button"/>
+    <input type="button" value="Add todo" ng-click="$ctrl.addTask()"
+           ng-show="todoForm.todoName.$valid && !$ctrl.editMode" class="save-button"/>
+
+    <div>
+        <label for="todoDays">Days old</label>
+        <input id="todoDays" min="0" type="number" placeholder="Date" ng-model="$ctrl.task.days" value="$ctrl.task.days"
+               name="todoDays"/>
+    </div>
 </form>

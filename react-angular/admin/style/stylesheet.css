@@ -1,0 +1,64 @@
+.add-button, .edit-task, .remove-task, .back-button, .save-button {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    line-height: 30px;
+    background: #c3d7ff;
+}
+
+.add-button:hover, .edit-task:hover, .remove-task:hover, .back-button:hover, .save-button:hover {
+    cursor: pointer;
+    background: #b4d4ff;
+}
+
+.sorting-form input {
+    margin-right: 30px;
+}
+
+.filter-form {
+    margin: 20px 0;
+}
+
+.filter-form label {
+    margin-right: 20px;
+}
+
+.task-form label {
+    margin-right: 10px;
+}
+
+.edit-task, .remove-task, .back-button, .save-button {
+    width: 100px;
+    margin-top: 5px;
+    outline: none;
+    border: none;
+}
+
+.remove-task {
+    background: #e5bdbd;
+}
+
+.remove-task:hover {
+    background: #e5aaad;
+}
+
+.todo-list {
+    list-style: none;
+}
+
+.back-button {
+    width: 100px;
+    margin-top: 10px;
+}
+
+.save-button {
+    height: 25px;
+    line-height: 25px;
+    margin: 0;
+    margin-left: 10px;
+}
+
+.active-page {
+    font-weight: 600;
+}

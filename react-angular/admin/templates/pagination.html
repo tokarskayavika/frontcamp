@@ -1,0 +1,5 @@
+<ul ng-if="number" class="pagination">
+    <li ng-repeat="n in [].constructor(number) track by $index">
+        <a ng-click="setPage($index)" ng-attr-class="{{$index == activePage && 'active-page'}}">page {{$index + 1}}</a>
+    </li>
+</ul>

@@ -29,7 +29,7 @@ angular.module('toDo.factory', ['ngResource']).factory('toDoFactory', ['$resourc
 
             var Task = $resource('/api/add');
             Task.save(JSON.stringify(newTask),
-                function(response) {
+                function() {
                 tasks.push(newTask);
             });
         },
@@ -76,19 +76,19 @@ angular.module('toDo.factory', ['ngResource']).factory('toDoFactory', ['$resourc
 
         sortByDate: function(tasks) {
             return tasks.sort(function(a, b) {
-                return a.date - b.date;
+                return a.days - b.days;
             });
         },
 
         filterPlannedByDaysOld: function(days) {
             return this.getPlannedTasks().filter(function(task) {
-                return task.date === days;
+                return task.days === days;
             });
         },
 
         filterDoneByDaysOld: function(days) {
             return this.getDoneTasks().filter(function(task) {
-                return task.date === days;
+                return task.days === days;
             });
         }
     };
@@ -119,11 +119,11 @@ angular.module('toDo.controllers', []).controller('toDoController', ['$scope', '
     };
 
     $scope.addTask = function() {
-        $scope.newTask.date = Date.now();
         toDoFactory.addTask($scope.newTask);
 
         $scope.newTask = {
             name: '',
+            days: '',
             done: false,
             edit: false
         };

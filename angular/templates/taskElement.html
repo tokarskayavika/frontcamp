@@ -1,6 +1,7 @@
 <li>
     <input type="checkbox" ng-model="$ctrl.task.done" ng-click="$ctrl.moveTask()" />
     <span ng-hide="$ctrl.task.edit">{{$ctrl.task.name}}</span>
+    <p>Days old: {{$ctrl.task.days}}</p>
     <task-form ng-show="$ctrl.task.edit" task="$ctrl.task" save-task="$ctrl.saveTask(task)"></task-form>
     <div>
         <input type="button" value="Remove" ng-click="$ctrl.removeTask(index)" class="remove-task" />

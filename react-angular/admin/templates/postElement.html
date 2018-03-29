@@ -1,0 +1,7 @@
+<li>
+    <span ng-hide="$ctrl.post.edit">Title: {{$ctrl.post.title}}</span>
+    <div>
+        <input type="button" value="Remove" ng-click="removePost($ctrl.post._id)" class="remove-task" />
+        <input type="button" value="Edit" ng-click="goToEditPage($ctrl.post._id)" class="edit-task" />
+    </div>
+</li>

@@ -1,0 +1,35 @@
+<form name="postsForm" class="task-form">
+    <div>
+        <label for="postTitle">Title</label>
+        <input id="postTitle" type="text" placeholder="Post title" ng-model="$ctrl.post.title" value="$ctrl.post.title"
+               name="postTitle" control-name-length required/>
+        <span ng-show="postsForm.postTitle.$dirty && postsForm.postTitle.$invalid">
+            Title should be more than 19 symbols!
+        </span>
+    </div>
+
+    <div>
+        <label for="postAuthor">Author</label>
+        <input id="postAuthor" type="text" placeholder="Post author" ng-model="$ctrl.post.author"
+               value="$ctrl.post.author"
+               name="postAuthor" required/>
+        <span ng-show="postsForm.postAuthor.$dirty && postsForm.postAuthor.$invalid">
+            Author must be filled!
+        </span>
+    </div>
+
+    <div>
+        <label for="postDescription">Description</label>
+        <textarea id="postDescription" type="text" placeholder="Post description" ng-model="$ctrl.post.description"
+               value="$ctrl.post.description"
+               name="postDescription" required></textarea>
+        <span ng-show="postsForm.postDescription.$dirty && postsForm.postDescription.$invalid">
+            Description must be filled!
+        </span>
+    </div>
+
+    <input type="button" value="Save post" ng-click="$ctrl.savePost($ctrl.post)"
+           ng-show="postsForm.postDescription.$valid && postsForm.postAuthor.$valid && postsForm.postTitle.$valid && $ctrl.editMode" class="save-button"/>
+    <input type="button" value="Add post" ng-click="$ctrl.addPost()"
+           ng-show="postsForm.postDescription.$valid && postsForm.postAuthor.$valid && postsForm.postTitle.$valid && !$ctrl.editMode" class="save-button"/>
+</form>

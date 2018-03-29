@@ -1,0 +1,6 @@
+<div ng-controller="toDoController">
+    <div ng-click="goToAddPage()" add-post="addPost(post)" class="add-button">ADD NEW POST</div>
+
+    <post-list posts="posts"></post-list>
+    <pagination length="posts.length"></pagination>
+</div>

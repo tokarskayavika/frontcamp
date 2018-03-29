@@ -1,0 +1,13 @@
+html
+    head
+        title Angular todo
+        link(href="../angular/admin/style/stylesheet.css")
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.9/angular.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js')
+        script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.1//angular-route.min.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.9/angular-resource.min.js')
+    body
+        div(ng-app='toDo')
+            div(ng-view)
+    script
+        include ../build/admin.bundle.js
