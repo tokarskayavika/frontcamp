@@ -33,7 +33,6 @@ angular.module('toDo.factory', ['ngResource']).factory('toDoFactory', ['$resourc
                 posts = posts.filter(function(post) {
                     return post._id !== id;
                 });
-                console.log(posts);
             }, function(errResponse) {
                 console.log(errResponse);
             });
@@ -65,8 +64,6 @@ angular.module('toDo.factory', ['ngResource']).factory('toDoFactory', ['$resourc
 }]);
 
 
-
-
 angular.module('pagination.controllers', []).controller('paginationController', ['$timeout', '$scope', function($timeout, $scope) {
     var _this = this;
     $scope.itemsPerPage = 5;
@@ -86,14 +83,19 @@ angular.module('pagination.controllers', []).controller('paginationController', 
     };
 
     $scope.calculatePageNumber = function() {
+        console.log(_this.length, $scope.itemsPerPage);
         return Math.ceil(_this.length / $scope.itemsPerPage);
     };
 }]);
 
 
+angular.module('toDo.controllers', []).controller('toDoController', ['$scope', '$location', '$routeParams', 'toDoFactory', '$timeout', '$route', function($scope, $location, $routeParams, toDoFactory, $timeout, $route) {
 
+    var _this = this;
 
-angular.module('toDo.controllers', []).controller('toDoController', ['$scope', '$location', '$routeParams', 'toDoFactory', function($scope, $location, $routeParams, toDoFactory) {
+    (function() {
+        $scope.post = $routeParams.id && toDoFactory.getPostById($routeParams.id);
+    })();
 
     this.$onInit = function() {
         $scope.newPost = {
@@ -105,9 +107,11 @@ angular.module('toDo.controllers', []).controller('toDoController', ['$scope', '
         toDoFactory.fetchPosts().then(function() {
             $scope.posts = toDoFactory.getPosts();
         });
-
-        $scope.post = $routeParams.id && toDoFactory.getPostById($routeParams.id);
     };
+
+    // $timeout(function() {
+    //     $scope.$emit('initPaging');
+    // }, 0);
 
     $scope.addPost = function() {
         toDoFactory.addPost($scope.newPost);
@@ -133,7 +137,13 @@ angular.module('toDo.controllers', []).controller('toDoController', ['$scope', '
 
     $scope.removePost = function(id) {
         toDoFactory.removePost(id).then(function() {
-            $scope.posts = toDoFactory.getPosts(); // почему нет рендера
+
+            $scope.posts = toDoFactory.getPosts();
+
+            $route.reload();
+            // $timeout(function() {
+            //
+            // }, 0);
         });
     };
 
