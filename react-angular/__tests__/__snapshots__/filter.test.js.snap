@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Filter Component filter renders properly 1`] = `
+<div
+  className="filter"
+>
+  <input
+    id="filter-input"
+    onChange={[Function]}
+    type="text"
+  />
+  <label
+    htmlFor="filter-input"
+  >
+    Filter by author
+  </label>
+</div>
+`;

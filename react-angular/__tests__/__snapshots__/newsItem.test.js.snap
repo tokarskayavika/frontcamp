@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`News Item Component newsItem renders properly 1`] = `
+<li
+  className="news-item"
+  data-id="0"
+>
+  <h3
+    className="title"
+  >
+    
+  </h3>
+  <div
+    className="feed-info"
+  >
+    <p
+      className="author"
+    >
+      
+    </p>
+    <p
+      className="description"
+    >
+      
+    </p>
+  </div>
+</li>
+`;

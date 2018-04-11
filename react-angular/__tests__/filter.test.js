@@ -2,36 +2,43 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import Filter from '../scripts/ui/posts/Filter';
 import Adapter from 'enzyme-adapter-react-16';
-import expect from 'expect';
+import expectFrom from 'expect';
 import enzymify from 'expect-enzyme';
+import renderer from 'react-test-renderer';
 
 Enzyme.configure({
     adapter: new Adapter()
 });
 
-expect.extend(enzymify());
+expectFrom.extend(enzymify());
 
 describe('Filter Component', () => {
     let filter;
 
     beforeEach(() => {
-        filter = Enzyme
-            .shallow(<Filter changeFilterValue={() => {}} />);
+        filter = Enzyme.shallow(<Filter changeFilterValue={() => {}} />);
     });
 
     it('component should be a div', () => {
-        expect(filter).toBeA('div');
+        expectFrom(filter).toBeA('div');
     });
 
     it('filter should contain an input', () => {
-        expect(filter).toContain('input');
+        expectFrom(filter).toContain('input');
     });
 
     it('filter should not contain a section element', () => {
-        expect(filter).toNotContain('section');
+        expectFrom(filter).toNotContain('section');
     });
 
     it('should be a label inside', () => {
-        expect(filter.find('label')).toHaveRendered();
+        expectFrom(filter.find('label')).toHaveRendered();
+    });
+
+    it('filter renders properly', () => {
+        const filter = renderer
+            .create(<Filter changeFilterValue={() => {}} />)
+            .toJSON();
+        expect(filter).toMatchSnapshot();
     });
 });

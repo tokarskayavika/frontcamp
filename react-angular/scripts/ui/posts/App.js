@@ -20,7 +20,7 @@ class Application extends Component {
         }
 
         return (
-            <div>
+            <div className='application'>
                 <div className='header'>
                     <h1>News Portal</h1>
                 </div>
